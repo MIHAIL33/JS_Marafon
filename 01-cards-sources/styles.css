@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap'); 
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  background: #cdcdcd;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  padding: 0 20px;
+}
+
+.slide {
+  height: 80vh;
+  border-radius: 20px;
+  margin: 10px;
+  cursor: pointer;
+  color: #fff;
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  transition: all 500ms ease-in-out;
+}
+
+.slide h3 {
+  position: absolute;
+  font-size: 24px;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  letter-spacing: 3px;
+  opacity: 0;
+}
+
+.slide.active {
+  flex: 10
+}
+
+.slide.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+/*arrows*/
+.slide.active .arrow {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+.arrow {
+  --color: white;
+  cursor: pointer;
+  position: absolute;
+  width: 35px;
+  height: 50px;
+  bottom: 50%;
+  opacity: 0;
+}
+.arrow-right {
+  right: 10px;
+  margin-right: 5px;
+}
+.arrow-left {
+  left: 10px;
+  margin-left: 10px; 
+}
+.arrow div {
+  position: relative;
+  top: 20px;
+  width: 30px;
+  height: 4px;
+  background-color: var(--color);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+  left:0;
+  display: block;
+}
+.arrow-right div::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  top: -6px;
+  right: -6px;
+  background-color: var(--color);
+  transform: rotate(45deg);
+}
+.arrow-left div::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  top: -6px;
+  right: 16px;
+  background-color: var(--color);
+  transform: rotate(-45deg);
+}
+.arrow-right div::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  top: 6px;
+  right: -6px;
+  background-color: var(--color);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+  transform: rotate(-45deg);
+}
+.arrow-left div::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  top: 6px;
+  right: 16px;
+  background-color: var(--color);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+  transform: rotate(45deg);
+}
+.arrow-right:hover {
+  animation: arrow-right 1.0s linear infinite;
+}
+.arrow-left:hover {
+  animation: arrow-left 1.0s linear infinite;
+}
+@keyframes arrow-right {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: 6px;
+  }
+  100% {
+    right: 0;
+  }
+}
+@keyframes arrow-left {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 6px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
